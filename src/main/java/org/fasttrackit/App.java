@@ -12,6 +12,7 @@ public class App
     {
         System.out.println("Welcome to racing game!");
 
+        //instance of the class Car
         Car carReference = new Car ();
         carReference.name = "Audi";
         carReference.color = "red";
@@ -40,7 +41,7 @@ public class App
         System.out.println(carReference.engine.capacity);
 
 
-        // concatenation
+        // concatenation= lipirea mai multor stringuri unul langa altul
         System.out.println("Properties of " + carReference.name);
         System.out.println("color: " + carReference.color);
         System.out.println("max speed: " + carReference.maxSpeed);
@@ -56,6 +57,7 @@ public class App
         System.out.println("Properties of " + car2.name);
         System.out.println("color: " + car2.color);
         System.out.println("damaged: " + car2.damaged);
+
 
 
 
