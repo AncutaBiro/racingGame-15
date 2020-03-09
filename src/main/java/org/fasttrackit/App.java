@@ -1,6 +1,7 @@
 package org.fasttrackit;
 
 
+import java.util.Scanner;
 
 /**
  * Hello world!
@@ -10,11 +11,17 @@ public class App
 {
     public static void main( String[] args )
     {
+        System.out.println( "Please enter vehicle name: ");
+        Scanner scanner = new Scanner(System.in);
+        String vehicleName = scanner.nextLine();
+
+        System.out.println("Entered name: " + vehicleName);
+
         System.out.println("Welcome to racing game!");
 
         //instance of the class Car
         Car carReference = new Car ();
-        carReference.name = "Audi";
+        carReference.name = "Audi"; // vehicleName alternative
         carReference.color = "red";
         carReference.maxSpeed = 260;
         carReference.mileage = 6.2;
