@@ -13,29 +13,34 @@ public class Vehicle {
     boolean damaged;
 
     // declararea metodei : method signature : tip clasa, date returnate, nume metoda
-    public double accelerate (double speed, double durationInHours) {
+    public double accelerate(double speed, double durationInHours) {
 
         System.out.println(name + " is accelerating with " + speed + " km/h for " + durationInHours + " h");
 
         //local variables
         double traveledDistance = speed * durationInHours;
 
-        System.out.println( "Traveled distance: " + traveledDistance);
+        System.out.println("Traveled distance: " + traveledDistance);
 
         totalDistance += traveledDistance;
 
-        System.out.println( "Total traveled distance: " + totalDistance);
+        System.out.println("Total traveled distance: " + totalDistance);
 
         double usedFuel = traveledDistance * mileage / 100;
 
         fuelLevel = fuelLevel - usedFuel;
-         // same result as the instruction above
-   //    fuelLevel -= usedFuel;
+        // same result as the instruction above
+        //    fuelLevel -= usedFuel;
 
         System.out.println("Remaining fuel: " + fuelLevel);
 
         return traveledDistance;
 
+        }
+
+    public void decelerate() {
+        // TODO: implement this
+        System.out.println("This is just a demo method");
 
     }
 

@@ -19,6 +19,7 @@ public class App
         carReference.maxSpeed = 260;
         carReference.mileage = 6.2;
         carReference.fuelLevel = 100;
+        carReference.damaged = true;
 
 
 //        carReference.engine = new Engine();
@@ -33,8 +34,12 @@ public class App
 
         //apelarea metodei
         double currentDistance = carReference.accelerate(60, 1);
-
         System.out.println( "Current distance: " + currentDistance);
+
+        Mechanic mechanic = new Mechanic ();
+        mechanic.repair(carReference);
+
+        System.out.println( "Is car damaged? " + carReference.damaged);
 
         // one object with 2 references
         System.out.println( "Engine details:");
@@ -65,11 +70,10 @@ public class App
         System.out.println("color: " + car2.color);
         System.out.println("damaged: " + car2.damaged);
 
-
-
-
-
-
+        // modulo (modulus operator), rezulta restul impartirii
+//       System.out.println(4 % 2 );
+//        System.out.println(4 % 2 == 0);
+//       System.out.println(4 % 3);
 
 
     }
