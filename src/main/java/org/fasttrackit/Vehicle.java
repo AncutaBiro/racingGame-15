@@ -12,7 +12,7 @@ public class Vehicle {
     double totalDistance;
     boolean damaged;
 
-    // declararea metodei : method signature : tip clasa, date returnate, nume metoda
+    // declararea metodei : method signature : modificator de acces, tip date returnate, nume metoda
     public double accelerate(double speed, double durationInHours) {
 
         if (fuelLevel <= 0) {
@@ -30,7 +30,10 @@ public class Vehicle {
             System.out.println( "Valid speed entered");
         }
 
-        // todo: use more fuel if speed > 120
+        double mileageMultiplier = 1;
+        if (speed > 120) {
+            mileageMultiplier = speed / 100;
+        }
 
             System.out.println(name + " is accelerating with " + speed + " km/h for " + durationInHours + " h");
 
@@ -44,6 +47,8 @@ public class Vehicle {
         System.out.println("Total traveled distance: " + totalDistance);
 
         double usedFuel = traveledDistance * mileage / 100;
+
+        usedFuel *= mileageMultiplier;
 
         fuelLevel = fuelLevel - usedFuel;
         // same result as the instruction above

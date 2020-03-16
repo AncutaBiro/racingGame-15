@@ -1,6 +1,5 @@
 package org.fasttrackit;
 
-
 import java.util.Scanner;
 
 /**
@@ -11,6 +10,10 @@ public class App
 {
     public static void main( String[] args )
     {
+
+        Game game =  new Game ();
+        game.start ();
+
         System.out.println( "Please enter vehicle name: ");
         Scanner scanner = new Scanner(System.in);
         String vehicleName = scanner.nextLine();
@@ -18,6 +21,7 @@ public class App
         System.out.println("Entered name: " + vehicleName);
 
         System.out.println("Welcome to racing game!");
+
 
         //instance of the class Car
         Car carReference = new Car ();
@@ -48,6 +52,7 @@ public class App
 
         System.out.println( "Is car damaged? " + carReference.damaged);
 
+
         // one object with 2 references
         System.out.println( "Engine details:");
         System.out.println(engine1.capacity);
@@ -58,7 +63,6 @@ public class App
         System.out.println( "Updated engine details:");
         System.out.println(engine1.capacity);
         System.out.println(carReference.engine.capacity);
-
 
         // concatenation= lipirea mai multor stringuri unul langa altul
         System.out.println("Properties of " + carReference.name);
