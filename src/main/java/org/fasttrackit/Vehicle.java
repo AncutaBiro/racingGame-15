@@ -2,6 +2,9 @@ package org.fasttrackit;
 
 public class Vehicle {
 
+// static variable / class variable
+    static int totalVehicleCount;
+
     // instance variables
     int racingNumber;
     String name;
@@ -11,6 +14,10 @@ public class Vehicle {
     double fuelLevel;
     double totalDistance;
     boolean damaged;
+
+    public Vehicle () {
+        totalVehicleCount++;
+    }
 
     // declararea metodei : method signature : modificator de acces, tip date returnate, nume metoda
     public double accelerate(double speed, double durationInHours) {
@@ -61,7 +68,6 @@ public class Vehicle {
         }
 
     public void decelerate() {
-        // todo: implement this
         System.out.println("This is just a demo method");
 
     }
