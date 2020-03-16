@@ -2,8 +2,9 @@ package org.fasttrackit;
 
 public class Vehicle {
 
-// static variable / class variable
-    static int totalVehicleCount;
+    // static variable / class variable
+    private static int totalVehicleCount;
+
 
     // instance variables
     private int racingNumber;
@@ -15,8 +16,14 @@ public class Vehicle {
     private double totalDistance;
     private boolean damaged;
 
-    public Vehicle () {
+    public Vehicle() {
         totalVehicleCount++;
+    }
+
+    // method overloading
+    public double accelerate(double speed)
+    {
+        return accelerate(speed, 1);
     }
 
     // declararea metodei : method signature : modificator de acces, tip date returnate, nume metoda
