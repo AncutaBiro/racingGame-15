@@ -10,7 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-
         Game game =  new Game ();
         game.start ();
 
@@ -22,9 +21,12 @@ public class App
 
         System.out.println("Welcome to racing game!");
 
+        Engine engine1 = new Engine();
+        engine1.manufacturer =  "VW";
+        engine1.capacity = 2000;
 
         //instance of the class Car
-        Car carReference = new Car ();
+        Car carReference = new Car (engine1);
         carReference.name = "Audi"; // vehicleName alternative
         carReference.color = "red";
         carReference.maxSpeed = 260;
@@ -37,11 +39,6 @@ public class App
 //        carReference.engine.manufacturer = "VW";
 //        carReference.engine.capacity = 2000;
 
-        Engine engine1 = new Engine();
-        engine1.manufacturer =  "VW";
-        engine1.capacity = 2000;
-
-        carReference.engine = engine1;
 
         //apelarea metodei
         double currentDistance = carReference.accelerate(60, 1);
@@ -73,7 +70,7 @@ public class App
         System.out.println("racing number: " + carReference.racingNumber);
         System.out.println("damaged: " + carReference.damaged);
 
-        Car car2 = new Car();
+        Car car2 = new Car(new Engine());
         car2.name = "Lamborghini";
         car2.damaged = true;
 
