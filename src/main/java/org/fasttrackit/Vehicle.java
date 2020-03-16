@@ -5,7 +5,6 @@ public class Vehicle {
     // static variable / class variable
     private static int totalVehicleCount;
 
-
     // instance variables
     private int racingNumber;
     private String name;
