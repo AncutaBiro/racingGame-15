@@ -78,6 +78,8 @@ public class Vehicle {
 
     }
 
+    // encapsulation
+
     public int getRacingNumber() {
         return racingNumber;
     }
@@ -134,7 +136,7 @@ public class Vehicle {
         this.totalDistance = totalDistance;
     }
 
-    public boolean isDamaged() {
+    public boolean isDamaged(boolean b) {
         return damaged;
     }
 
