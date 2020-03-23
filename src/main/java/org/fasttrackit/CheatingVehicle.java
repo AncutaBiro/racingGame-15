@@ -22,4 +22,7 @@ public class CheatingVehicle extends Vehicle {
         return new CheatingVehicle();
     }
 
+    public void fly () {
+        System.out.println("Flying");
+    }
 }
