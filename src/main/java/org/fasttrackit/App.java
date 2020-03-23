@@ -14,6 +14,21 @@ public class App
 //        Game game =  new Game ();
 //        game.start ();
 
+        CheatingVehicle cheater = new CheatingVehicle();
+        cheater.setName("Cheater");
+
+        cheater.accelerate(60,1);
+
+        System.out.println("Total distance: " + cheater.getTotalDistance());
+
+
+
+
+
+
+
+
+
         Vehicle vehicle1 = new Vehicle();
 //        vehicle1.totalVehicleCount = 1;
 
@@ -48,9 +63,9 @@ public class App
         carReference.setFuelLevel(100);
         carReference.setDamaged(true);
 
+        System.out.println(carReference);
+
         System.out.println("Name: " + carReference.getName());
-
-
 
 //        carReference.engine = new Engine();
 //        carReference.engine.manufacturer = "VW";
