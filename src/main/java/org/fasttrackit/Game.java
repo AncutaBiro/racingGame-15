@@ -14,18 +14,20 @@ public class Game {
 
         initializeTracks();
         displayTracks();
+        Track selectedTrack = getSelectedTrackFromUser();
+        System.out.println("Selected track: " + selectedTrack.getName());
     }
 
     private void initializeTracks() {
         Track track1 = new Track();
         track1.setName("Imola");
-        track1.setLenght(3500);
+        track1.setLength(3500);
 
         tracks[0] = track1;
 
         Track track2 = new Track();
         track2.setName("Suzuka");
-        track2.setLenght(4100);
+        track2.setLength(4100);
 
         tracks[1] = track2;
     }
@@ -37,12 +39,17 @@ public class Game {
         // classic for loop
         for (int i = 0; i < tracks.length; i++) {
             if (tracks[i] != null) {
-                System.out.println((i+1) + ". " + tracks[i].getName() + " - " + tracks[i].getLenght());
+                System.out.println((i+1) + ". " + tracks[i].getName() + " - " + tracks[i].getLength());
             }
         }
-
     }
 
+    private Track getSelectedTrackFromUser () {
+        System.out.println("Please select a track.");
+        Scanner scanner = new Scanner (System.in);
+        int trackNumber = scanner.nextInt();
+        return tracks [trackNumber -1];
+    }
 
     private String getVehicleNameFromUser () {
 

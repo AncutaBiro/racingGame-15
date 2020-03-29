@@ -8,14 +8,5 @@ public class Mechanic {
         vehicle.setTotalDistance(vehicle.getTotalDistance()-1);
         vehicle.setDamaged (false);
 
-
-//        metoda inainte sa incapsulez Vehicle
-
-//        System.out.println( "Repairing vehicle " + vehicle.name);
-//
-//        vehicle.totalDistance--;
-//        vehicle.damaged = false;
-
-
     }
 }

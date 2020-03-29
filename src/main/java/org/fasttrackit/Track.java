@@ -3,7 +3,7 @@ package org.fasttrackit;
 public class Track {
 
     private String name;
-    private double lenght;
+    private double length;
 
     public String getName() {
         return name;
@@ -13,19 +13,19 @@ public class Track {
         this.name = name;
     }
 
-    public double getLenght() {
-        return lenght;
+    public double getLength() {
+        return length;
     }
 
-    public void setLenght(double lenght) {
-        this.lenght = lenght;
+    public void setLength(double length) {
+        this.length = length;
     }
 
     @Override
     public String toString() {
         return "Track{" +
                 "name='" + name + '\'' +
-                ", lenght=" + lenght +
+                ", length=" + length +
                 '}';
     }
 }

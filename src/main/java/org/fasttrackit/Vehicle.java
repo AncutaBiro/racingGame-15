@@ -78,13 +78,14 @@ public class Vehicle {
 
     }
 
-    // encapsulation
+
 
     //co-variant return type
     protected  Vehicle clone () {
         return new Vehicle();
     }
 
+    // encapsulation
     public int getRacingNumber() {
         return racingNumber;
     }
@@ -167,4 +168,6 @@ public class Vehicle {
                 ", damaged=" + damaged +
                 '}';
     }
+
+
 }
