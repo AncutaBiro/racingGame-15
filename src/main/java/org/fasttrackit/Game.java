@@ -8,10 +8,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
+
+
     //array
     private Track[] tracks = new Track[3];
     //   list
     private List<Vehicle> competitors = new ArrayList<>();
+    private Track selectedTrack;
+    private boolean winnerNotKnown =  true;
+    private int competitorsWithoutFuel = 0;
 
     public void start() throws Exception {
         System.out.println("Welcome!");
@@ -19,12 +24,14 @@ public class Game {
         initializeTracks();
         displayTracks();
 
-        Track selectedTrack = getSelectedTrackFromUser();
+        selectedTrack = getSelectedTrackFromUser();
         System.out.println("Selected track: " + selectedTrack.getName());
 
         initializeCompetitors();
 
+        while (winnerNotKnown && competitorsWithoutFuel < competitors.size()) {
         playOneRound();
+        }
 
     }
 
@@ -39,7 +46,16 @@ public class Game {
         for (Vehicle vehicle : competitors) {
             System.out.println("It's " + vehicle.getName() + " turn");
             double speed = getAccelerationSpeedFromUser();
+
             vehicle.accelerate(speed);
+
+            if (selectedTrack.getLength () <= vehicle.getTotalDistance()){
+                System.out.println("The winner is " + vehicle.getName());
+                winnerNotKnown = false;
+
+                break;
+            }
+//            if ()
 
             System.out.println();
         }
