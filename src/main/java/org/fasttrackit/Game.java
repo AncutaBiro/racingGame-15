@@ -1,6 +1,7 @@
 package org.fasttrackit;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,10 +10,11 @@ public class Game {
 
     //array
     private Track[] tracks = new Track[3];
+    //   list
     private List<Vehicle> competitors = new ArrayList<>();
 
-    public void start () {
-        System.out.println( "Welcome!");
+    public void start() throws Exception {
+        System.out.println("Welcome!");
 
         initializeTracks();
         displayTracks();
@@ -25,37 +27,39 @@ public class Game {
 
     }
 
- //   metoda split
+    //   metoda split
 //    String test = "a b c d";
 //    String [] letters = test.split(regex:" ");
 
-    private void playOneRound () {
-        System.out.println("New round");
+    private void playOneRound() {
+        System.out.println("\nNew round"); // new line
 
         //enhanced for (for each)
-        for (Vehicle vehicle: competitors) {
-            vehicle.accelerate(100);
+        for (Vehicle vehicle : competitors) {
+            System.out.println("It's " + vehicle.getName() + " turn");
+            double speed = getAccelerationSpeedFromUser();
+            vehicle.accelerate(speed);
+
+            System.out.println();
         }
     }
 
-    private void initializeCompetitors (){
-        int playerCount =  getPlayerCountFromUser();
+    private void initializeCompetitors() {
+        int playerCount = getPlayerCountFromUser();
 
-        for (int i=0; i <  playerCount; i++) {
-            System.out.println("Creating vehicle for competitor: " + (i+1));
+        for (int i = 0; i < playerCount; i++) {
+            System.out.println("Creating vehicle for competitor: " + (i + 1));
             String name = getVehicleNameFromUser();
 
             Vehicle vehicle = new Vehicle();
-            vehicle.setName (name);
-            vehicle.setFuelLevel (80);
-            vehicle.setMaxSpeed (260);
-            vehicle.setMileage (ThreadLocalRandom.current().nextDouble (5,15));
+            vehicle.setName(name);
+            vehicle.setFuelLevel(80);
+            vehicle.setMaxSpeed(260);
+            vehicle.setMileage(ThreadLocalRandom.current().nextDouble(5, 15));
 
-            competitors.add (vehicle);
+            competitors.add(vehicle);
 //            competitors.get(i);
-
         }
-
     }
 
     private void initializeTracks() {
@@ -72,24 +76,34 @@ public class Game {
         tracks[1] = track2;
     }
 
-    private void displayTracks () {
+    private void displayTracks() {
 
         System.out.println("Available tracks:");
 
         // classic for loop
         for (int i = 0; i < tracks.length; i++) {
             if (tracks[i] != null) {
-                System.out.println((i+1) + ". " + tracks[i].getName() + " - " + tracks[i].getLength());
+                System.out.println((i + 1) + ". " + tracks[i].getName() + " - " + tracks[i].getLength());
             }
         }
     }
 
-    private Track getSelectedTrackFromUser () {
+    private Track getSelectedTrackFromUser() throws Exception {
         System.out.println("Please select a track.");
-        Scanner scanner = new Scanner (System.in);
-        int trackNumber = scanner.nextInt();
-        return tracks [trackNumber -1];
+
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int trackNumber = scanner.nextInt();
+            return tracks[trackNumber - 1];
+        } catch (InputMismatchException e) {
+            throw new Exception ("Please enter a number.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new RuntimeException ("Wrong number entered.");
+        } finally {
+            System.out.println("Finally block always executed.");
+        }
     }
+
 
     private String getVehicleNameFromUser () {
 
@@ -105,5 +119,11 @@ public class Game {
         Scanner scanner = new Scanner (System.in);
         return scanner.nextInt();
 
+    }
+
+    private double getAccelerationSpeedFromUser (){
+        System.out.println("Please enter the acceleration speed: ");
+        Scanner scanner = new Scanner (System.in);
+        return scanner.nextDouble();
     }
 }
