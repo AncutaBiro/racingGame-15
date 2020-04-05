@@ -8,12 +8,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
-
-
-    //array
-    private Track[] tracks = new Track[3];
-    //   list
-    private List<Vehicle> competitors = new ArrayList<>();
+    private Track[] tracks = new Track[3];  //array
+    private List<Vehicle> competitors = new ArrayList<>();  //  list
     private Track selectedTrack;
     private boolean winnerNotKnown =  true;
     private int competitorsWithoutFuel = 0;
@@ -35,16 +31,16 @@ public class Game {
 
     }
 
-    //   metoda split
+//    //   metoda split
 //    String test = "a b c d";
-//    String [] letters = test.split(regex:" ");
+//    String [] letters = test.split(" ");
 
     private void playOneRound() {
         System.out.println("\nNew round"); // new line
 
-        //enhanced for (for each)
+        //enhanced for (for-each)
         for (Vehicle vehicle : competitors) {
-            System.out.println("It's " + vehicle.getName() + " turn");
+            System.out.println("It's " + vehicle.getName() + "'s turn.");
             double speed = getAccelerationSpeedFromUser();
 
             vehicle.accelerate(speed);
@@ -55,7 +51,9 @@ public class Game {
 
                 break;
             }
-//            if ()
+            if (vehicle.getFuelLevel() <=0) {
+                competitorsWithoutFuel++;
+            }
 
             System.out.println();
         }
@@ -65,7 +63,7 @@ public class Game {
         int playerCount = getPlayerCountFromUser();
 
         for (int i = 0; i < playerCount; i++) {
-            System.out.println("Creating vehicle for competitor: " + (i + 1));
+            System.out.println("Creating vehicle for player: " + (i + 1));
             String name = getVehicleNameFromUser();
 
             Vehicle vehicle = new Vehicle();
@@ -75,7 +73,7 @@ public class Game {
             vehicle.setMileage(ThreadLocalRandom.current().nextDouble(5, 15));
 
             competitors.add(vehicle);
-//            competitors.get(i);
+//         competitors.get(i); // how to display a list;
         }
     }
 
