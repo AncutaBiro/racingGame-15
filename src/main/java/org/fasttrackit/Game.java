@@ -139,15 +139,12 @@ public class Game {
     private double getAccelerationSpeedFromUser (){
         System.out.println("Please enter the acceleration speed: ");
 
-
-
         try {
             return ScannerUtils.nextSingleDouble();
         } catch (InputMismatchException e) {
             System.out.println("You have entered an invalid value. Please try again.");
             // recursion
             return getAccelerationSpeedFromUser();
-
         }
     }
 }

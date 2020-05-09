@@ -8,6 +8,7 @@ public class ScannerUtils {
 
     public static String nextLine() {
         return scanner.nextLine();
+
     }
 
     public static int nextSingleIntAndMoveToNextLine () {

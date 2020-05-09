@@ -1,7 +1,7 @@
 package org.fasttrackit;
 
 import java.beans.VetoableChangeListener;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Hello world!
@@ -11,12 +11,33 @@ public class App
 {
     public static void main( String[] args ) throws Exception {
 
-
-
-
         Game game =  new Game ();
         game.start ();
 
+
+//      // Set Collections : o lista care afiseaza elemente unice, nu afiseaza valori dublate. ex. lista CNP
+//        Set<Integer> uniqueIntegers = new HashSet<>();  // wrapper class Integer
+//        uniqueIntegers.add(1); // adaugare in Set
+//        uniqueIntegers.add(2);
+//        uniqueIntegers.add(3);
+//        uniqueIntegers.add(3);
+//      Iterator<Integer> iterator =  uniqueIntegers.iterator();  // citire, parcurgere in Set
+//        while (iterator.hasNext()) {
+//            Integer next = iterator.next ();   // auto-boxing int - Integer , auto-unboxing Integer - int
+//            System.out.println(next); }
+
+    // Map Collections : interface for pair key-value, ex. translations
+//        Map<String, Integer> studentAge = new HashMap<>();
+//        studentAge.put ("Ion", 20); // pair key-value: "Ion" key always unique, 20 value.
+//        studentAge.put ("Flaviu", 30);
+//
+//        Integer age = studentAge.get("Flaviu"); // citire
+//        System.out.println(age);
+//
+//        for (Map.Entry<String, Integer> entry: studentAge.entrySet()) { //parcurgere
+//            System.out.println("Key " + entry.getKey());
+//            System.out.println("Value " + entry.getValue());
+//        }
 
 //        //string pool
 //        String a = "test";
@@ -25,9 +46,6 @@ public class App
 //
 //        System.out.println(a == b);
 //        System.out.println(a.equals(c));
-
-
-
 
         // POLYMORPHISM method implementation taken from object's Cheating Vehicle class not from variable's class Vehicle
 //        Vehicle cheater = new CheatingVehicle();
